@@ -1,7 +1,7 @@
 Summary:	C library with some useful data structures and routines
 Name:		trurlib
 Version:	0.43.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
@@ -51,7 +51,7 @@ Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
 Group(uk):	Розробка/Б╕бл╕отеки
-Requires:	%{name} = %{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
 Static trurl library.
