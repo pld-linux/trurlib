@@ -46,6 +46,9 @@ Static trurl library.
 %setup -q 
 
 %build
+aclocal
+automake
+autoconf
 %configure --enable-shared
  
 %install
