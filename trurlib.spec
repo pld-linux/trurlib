@@ -59,6 +59,7 @@ Statyczna biblioteka trurl.
 %setup -q
 
 %build
+rm -f missing
 aclocal
 %{__autoconf}
 %{__automake}
