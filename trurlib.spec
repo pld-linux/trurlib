@@ -1,6 +1,6 @@
 Summary:	C library with some useful data structures and routines
 Name:		trurlib
-Version:	0.43.1
+Version:	0.43.2
 Release:	1
 License:	LGPL
 Group:		Development/Libraries
