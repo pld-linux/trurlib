@@ -6,7 +6,7 @@ Release:	0.1
 License:	LGPL
 Group:		Libraries
 # Source taken from poldek-0.18.6/trurlib
-Source0:	http://twittner.no-ip.info/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	eb4cf29b05891711f6b9227ace34cc31
 Patch0:		%{name}-POSIX.patch
 Patch1:		%{name}-missing_includes.patch
