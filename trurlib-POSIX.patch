@@ -1,0 +1,11 @@
+--- trurlib-0.44.0/Makefile.am.bef	Sun Aug 29 22:14:45 2004
++++ trurlib-0.44.0/Makefile.am	Sun Aug 29 22:15:21 2004
+@@ -146,7 +146,7 @@
+ CLEANFILES = $(EXTRA_PROGRAMS) core *.o *.bak *~ *% *\# \#* 
+ 
+ symlink: 
+-	@if [ ! -d trurl ]; then ln . trurl -s; fi;
++	@if [ ! -d trurl ]; then ln -s . trurl; fi;
+ 
+ tests:  symlink $(EXTRA_PROGRAMS)
+ 
