@@ -1,6 +1,6 @@
-Summary:	Some useful data structures and routines
+Summary:	C library with some useful data structures and routines
 Name:		trurlib
-Version:	0.42
+Version:	0.43
 Release:	1
 License:	LGPL
 Group:		Development/Libraries
@@ -9,32 +9,44 @@ Source:		%{name}-%{version}.tar.gz
 BuildRoot:	/tmp/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Library contains some useful data structures and routines:
-dynamic array and linked list with Perl-like interface, 
-hash table, some string functions, xmalloc()s
-and other n stuff.
- 
+TRURL library contains some useful data structures and routines:
+- dynamic array 
+- linked list 
+ (both with Perl-like interface)
+- hash table
+- some string functions
+- xmalloc()s 
+
+and some other n stuff.
+
 %package	devel
-Summary:	Static library and header files of trurlib
+Summary:	trurlib headers and documentation
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
-Static library and header files of trurlib
+trurlib headers and documentation
+
+%package	static
+Summary:	Static trurl library 
+Group:		Development/Libraries
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
+
+%description static
+Static trurl library
 
 %prep 
 %setup -q 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS -fomit-frame-pointer -DNDEBUG"
-make static modules=on CFLAGS="$CFLAGS"
-make shared modules=on without_dbhash=1 CFLAGS="$CFLAGS"
+%configure --enable-shared
  
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}
-make install DESTDIR=$RPM_BUILD_ROOT%{_prefix}
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,9 +57,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/lib*.a
+%attr(644,root,root) %{_libdir}/lib*.la
 %attr(644,root,root) %{_libdir}/lib*.so
 %{_includedir}/trurl
+
+%files static
+%defattr(644,root,root,755)
+%attr(644,root,root) %{_libdir}/lib*.a
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
