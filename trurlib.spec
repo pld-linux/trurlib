@@ -1,7 +1,8 @@
 Summary:	C library with some useful data structures and routines
+Summary(pl):	Biblioteka w C z u¿ytecznymi strukturami danych i procedurami
 Name:		trurlib
 Version:	0.43.3
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
@@ -24,10 +25,22 @@ TRURL library contains some useful data structures and routines:
 - some string functions
 - xmalloc()s
 
-and some other n stuff.
+and some other stuff.
+
+%description -l pl
+Biblioteka TRURL zawiera trochê u¿ytecznych struktur danych i
+procedur:
+- dynamiczne tablice
+- listy (z interfejsem perlopodobnym)
+- tablice mieszaj±ce
+- funkcje do stringów
+- xmalloc() itp.
+
+i inne.
 
 %package devel
 Summary:	trurlib headers and documentation
+Summary(pl):	Pliki nag³ówkowe i dokumentacja trurlib
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -41,8 +54,12 @@ Requires:	%{name} = %{version}
 %description devel
 Trurlib headers and documentation.
 
+%description devel -l pl
+Pliki nag³ówkowe i dokumentacja trurlib.
+
 %package static
-Summary:	Static trurl library 
+Summary:	Static trurl library
+Summary(pl):	Statyczna biblioteka trurl
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -55,6 +72,9 @@ Requires:	%{name}-devel = %{version}
 
 %description static
 Static trurl library.
+
+%description static -l pl
+Statyczna biblioteka trurl.
 
 %prep 
 %setup -q 
@@ -74,6 +94,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*
@@ -87,6 +110,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %attr(644,root,root) %{_libdir}/lib*.a
-
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
