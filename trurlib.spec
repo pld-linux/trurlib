@@ -2,13 +2,14 @@ Summary:	C library with some useful data structures and routines
 Summary(pl):	Biblioteka w C z u¿ytecznymi strukturami danych i procedurami
 Name:		trurlib
 Version:	0.43.6
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.pld.org.pl/software/trurlib/%{name}-%{version}.tar.gz
 # Source0-md5:	1722811fef166550220fe6cde211fada
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +37,7 @@ i inne.
 Summary:	trurlib headers and documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja trurlib
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Trurlib headers and documentation.
@@ -48,7 +49,7 @@ Pliki nag³ówkowe i dokumentacja trurlib.
 Summary:	Static trurl library
 Summary(pl):	Statyczna biblioteka trurl
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static trurl library.
@@ -60,9 +61,10 @@ Statyczna biblioteka trurl.
 %setup -q
 
 %build
-rm -f missing
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-shared
@@ -70,7 +72,8 @@ rm -f missing
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -80,14 +83,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.la
 %attr(644,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/trurl
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/lib*.a
+%{_libdir}/lib*.a
