@@ -6,6 +6,7 @@ Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.pld.org.pl/software/trurlib/%{name}-%{version}.tar.gz
+# Source0-md5:	1722811fef166550220fe6cde211fada
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
