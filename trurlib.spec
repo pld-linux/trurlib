@@ -1,8 +1,8 @@
 Summary:	C library with some useful data structures and routines
 Summary(pl):	Biblioteka w C z u¿ytecznymi strukturami danych i procedurami
 Name:		trurlib
-Version:	0.43.3
-Release:	3
+Version:	0.43.4
+Release:	1
 License:	LGPL
 Group:		Development/Libraries
 Source0:	ftp://ftp.pld.org.pl/software/trurlib/%{name}-%{version}.tar.gz
