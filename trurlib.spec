@@ -55,8 +55,8 @@ Static trurl library.
 %description static -l pl
 Statyczna biblioteka trurl.
 
-%prep 
-%setup -q 
+%prep
+%setup -q
 
 %build
 aclocal
