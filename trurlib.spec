@@ -4,24 +4,27 @@ Version:	0.43.1
 Release:	1
 License:	LGPL
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Source:		ftp://ftp.pld.org.pl/software/trurlib/%{name}-%{version}.tar.gz
-BuildRoot:	/tmp/%{name}-%{version}-root-%(id -u -n)
+Source0:	ftp://ftp.pld.org.pl/software/trurlib/%{name}-%{version}.tar.gz
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 TRURL library contains some useful data structures and routines:
-- dynamic array 
-- linked list 
- (both with Perl-like interface)
+- dynamic array
+- linked list (both with Perl-like interface)
 - hash table
 - some string functions
-- xmalloc()s 
+- xmalloc()s
 
 and some other n stuff.
 
 %package devel
 Summary:	trurlib headers and documentation
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -31,6 +34,8 @@ Trurlib headers and documentation.
 %package static
 Summary:	Static trurl library 
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -46,7 +51,7 @@ Static trurl library.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
