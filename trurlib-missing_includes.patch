@@ -1,0 +1,10 @@
+--- trurlib/include/trurl/narray.h	Fri Aug  6 00:55:45 2004
++++ trurlib/include/trurl/narray.h.new	Mon Aug 30 22:59:57 2004
+@@ -8,6 +8,7 @@
+ #define TRURL_ARRAY_H
+ 
+ #include <stdint.h>
++#include <stddef.h>
+ #include <trurl/tfn_types.h>
+ #include <trurl/ndie.h>
+ #include <trurl/n_obj_ref.h>
