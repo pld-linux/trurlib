@@ -1,12 +1,15 @@
 Summary:	C library with some useful data structures and routines
 Summary(pl):	Biblioteka w C z u¿ytecznymi strukturami danych i procedurami
 Name:		trurlib
-Version:	0.43.6
-Release:	3
+Version:	0.44.0
+Release:	0.1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.pld.org.pl/software/trurlib/%{name}-%{version}.tar.gz
-# Source0-md5:	1722811fef166550220fe6cde211fada
+# Source taken from poldek-0.18.6/trurlib
+Source0:	http://twittner.no-ip.info/%{name}-%{version}.tar.gz
+# Source0-md5:	eb4cf29b05891711f6b9227ace34cc31
+Patch0:		%{name}-POSIX.patch
+Patch1:		%{name}-missing_includes.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -37,7 +40,7 @@ i inne.
 Summary:	trurlib headers and documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja trurlib
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
 Trurlib headers and documentation.
@@ -49,7 +52,7 @@ Pliki nag³ówkowe i dokumentacja trurlib.
 Summary:	Static trurl library
 Summary(pl):	Statyczna biblioteka trurl
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static trurl library.
@@ -57,8 +60,16 @@ Static trurl library.
 %description static -l pl
 Statyczna biblioteka trurl.
 
+%if %{_os} == linux
+%define _libglob %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%else
+%define _libglob %attr(755,root,root) %{_libdir}/lib*.so.*
+%endif
+
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -83,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%{_libglob}
 
 %files devel
 %defattr(644,root,root,755)
