@@ -61,7 +61,7 @@ Statyczna biblioteka trurl.
 %build
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure \
 	--enable-shared
 
