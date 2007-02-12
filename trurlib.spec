@@ -1,5 +1,5 @@
 Summary:	C library with some useful data structures and routines
-Summary(pl):	Biblioteka w C z uøytecznymi strukturami danych i procedurami
+Summary(pl.UTF-8):   Biblioteka w C z u≈ºytecznymi strukturami danych i procedurami
 Name:		trurlib
 Version:	0.43.6
 Release:	4
@@ -22,39 +22,39 @@ TRURL library contains some useful data structures and routines:
 
 and some other stuff.
 
-%description -l pl
-Biblioteka TRURL zawiera trochÍ uøytecznych struktur danych i
+%description -l pl.UTF-8
+Biblioteka TRURL zawiera trochƒô u≈ºytecznych struktur danych i
 procedur:
 - dynamiczne tablice
 - listy (z interfejsem perlopodobnym)
-- tablice mieszaj±ce
-- funkcje do stringÛw
+- tablice mieszajƒÖce
+- funkcje do string√≥w
 - xmalloc() itp.
 
 i inne.
 
 %package devel
 Summary:	trurlib headers and documentation
-Summary(pl):	Pliki nag≥Ûwkowe i dokumentacja trurlib
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe i dokumentacja trurlib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Trurlib headers and documentation.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja trurlib.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja trurlib.
 
 %package static
 Summary:	Static trurl library
-Summary(pl):	Statyczna biblioteka trurl
+Summary(pl.UTF-8):   Statyczna biblioteka trurl
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static trurl library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka trurl.
 
 %prep
