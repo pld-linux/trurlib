@@ -1,5 +1,5 @@
 Summary:	C library with some useful data structures and routines
-Summary(pl.UTF-8):   Biblioteka w C z użytecznymi strukturami danych i procedurami
+Summary(pl.UTF-8):	Biblioteka w C z użytecznymi strukturami danych i procedurami
 Name:		trurlib
 Version:	0.43.6
 Release:	4
@@ -35,7 +35,7 @@ i inne.
 
 %package devel
 Summary:	trurlib headers and documentation
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja trurlib
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja trurlib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -47,7 +47,7 @@ Pliki nagłówkowe i dokumentacja trurlib.
 
 %package static
 Summary:	Static trurl library
-Summary(pl.UTF-8):   Statyczna biblioteka trurl
+Summary(pl.UTF-8):	Statyczna biblioteka trurl
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
